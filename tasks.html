@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tasks</title>
+</head>
+<body>
+<h1>Available Tasks</h1>
+
+<button onclick="earn()">Watch Ad (+₦50)</button>
+
+<p id="balance">Balance: ₦0</p>
+
+<script>
+let amount = 0;
+
+function earn(){
+  amount += 50;
+  document.getElementById("balance").innerHTML =
+  "Balance: ₦" + amount;
+}
+</script>
+
+<a href="index.html">Back Home</a>
+</body>
+</html><script>
+let amount = localStorage.getItem("balance") || 0;
+
+document.getElementById("balance").innerHTML =
+"Balance: ₦" + amount;
+
+function earn(){
+  amount = Number(amount) + 50;
+  localStorage.setItem("balance", amount);
+
+  document.getElementById("balance").innerHTML =
+  "Balance: ₦" + amount;
+}
+</script>
